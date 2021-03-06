@@ -4,16 +4,6 @@
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
 
-dbserver_ip = node['webserver']['dbserver_ip']
-dbserver_name = node['webserver']['dbserver_name']
-ruby_block 'edit etc hosts' do
-    block do
-        fe = Chef::Util::FileEdit.new('/etc/hosts')
-        fe.insert_line_if_no_match(/\W#{Regexp.escape(dbserver_name)}\W/, "#{dbserver_ip}    #{dbserver_name}")
-        fe.write_file
-    end
-end
-
 execute 'update' do
     command 'sudo dnf update -y'
     action :run
