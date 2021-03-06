@@ -9,13 +9,13 @@ dbserver_name = node['webserver']['dbserver_name']
 ruby_block 'edit etc hosts' do
     block do
         fe = Chef::Util::FileEdit.new('/etc/hosts')
-        fe.insert_line_if_no_match(/\W#{Regexp.escape(dbserver_name)}\W/, '#{dbserver_ip}    #{dbserver_name}')
+        fe.insert_line_if_no_match(/\W#{Regexp.escape(dbserver_name)}\W/, "#{dbserver_ip}    #{dbserver_name}")
         fe.write_file
     end
 end
 
 execute 'install nginx' do
-    command 'sudo dnf update && sudo dnf install -y nginx'
+    command 'sudo dnf update -y && sudo dnf install -y nginx'
     action :run
 end
 
