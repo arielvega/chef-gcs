@@ -51,5 +51,15 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-.vagrant/
-*.vagrant/
+# Git
+.git/
+.gitignore
+.gitmodules
+
+# Subversion
+.svn/
+
+# Mercurial
+.hg/*
+*/.hg/*
+.hgignore

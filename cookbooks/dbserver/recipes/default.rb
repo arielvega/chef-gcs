@@ -4,10 +4,6 @@
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
 
-execute 'update' do
-    command 'sudo dnf update -y'
-    action :run
-end
 
 execute 'enable postgres 12' do
     command 'sudo dnf module enable -y postgresql:12'

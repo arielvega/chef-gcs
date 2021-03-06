@@ -14,11 +14,6 @@ ruby_block 'edit etc hosts' do
     end
 end
 
-execute 'update' do
-    command 'sudo dnf update -y'
-    action :run
-end
-
 execute 'install nginx' do
     command 'sudo dnf install -y nginx'
     action :run
